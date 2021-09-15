@@ -1,9 +1,13 @@
-import React from "react";
-import { Button, Table, } from "semantic-ui-react";
-import Song from "./Song";
+import React, { Component } from "react";
+import { Container, Table } from "semantic-ui-react";
+import "./App.css";
+import SongForm from "./SongForm";
+import { Header, Button, Segment, Card, Icon } from 'semantic-ui-react';
+import styled from "styled-components";
+import Song from "./Song"
 
 const Songs = ({ songs, deleteSong, updateSong }) => (
-  <Table celled padded>
+  <Table celled padded as={TransparentTable}>
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>Title:</Table.HeaderCell>
@@ -20,10 +24,16 @@ const Songs = ({ songs, deleteSong, updateSong }) => (
           deleteSong={deleteSong}
           updateSong={updateSong}
           />
-        ))
-      }
+          ))
+        }
     </Table.Body>
   </Table>
 );
 
+const TransparentTable= styled.div`
+background: transparent !important;
+`
+
+
 export default Songs;
+

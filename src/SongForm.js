@@ -27,7 +27,6 @@ class SongForm extends React.Component {
   render() {
     return (
       <div>
-        <h1>Song Form</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
             <Form.Input

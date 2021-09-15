@@ -3,6 +3,11 @@ import { Container } from "semantic-ui-react";
 import "./App.css";
 import SongForm from "./SongForm";
 import Songs from "./Songs";
+import { Header, Button, Segment, Card, Icon } from 'semantic-ui-react';
+import styled from "styled-components";
+import HeaderText from "./HeaderText";
+import AppContainer from "./AppContainer";
+
 class App extends Component {
   state = {
     songs: [
@@ -31,7 +36,6 @@ class App extends Component {
     let updateSongs = this.state.songs.map((s) =>
       s.id === song.id ? song : s
     );
-
     this.setState({
       songs: updateSongs,
     });
@@ -45,16 +49,20 @@ class App extends Component {
   };
   render() {
     return (
-      <Container>
+      <AppContainer>
+        <HeaderText size="large">Songs</HeaderText>
         <SongForm addSong={this.addSong} />
         <Songs
           updateSong={this.updateSong}
           deleteSong={this.deleteSong}
           songs={this.state.songs}
         />
-      </Container>
+      </AppContainer>
     );
   }
 }
+
+
+
 
 export default App;

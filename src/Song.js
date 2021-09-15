@@ -1,6 +1,8 @@
 import React from "react";
-import { Button, Table } from "semantic-ui-react";
+import { Button, Icon, Table } from "semantic-ui-react";
 import SongForm from "./SongForm";
+import styled, { keyframes } from "styled-components";
+
 
 class Song extends React.Component {
   state = { showForm: false };
@@ -38,10 +40,31 @@ class Song extends React.Component {
           <Button onClick={this.toggleForm} color="blue">
             Update
           </Button>
+          <StyleIcon>
+            <Icon name="volume up" />
+          </StyleIcon>
         </Table.Cell>
       </Table.Row>
     );
   }
 }
 
+const rotate360 = keyframes`
+from {
+  transform:rotate(0deg);
+  color: purple;
+}
+to {
+  transform:rotate(360deg);
+  color: white;
+}
+`;
+const StyleIcon = styled.div`
+  fontsize: 30px;
+  display: inline-block;
+  color: red;
+  animation: ${rotate360} 2s linear infinite;
+`;
+
 export default Song;
+
